@@ -1,0 +1,47 @@
+body 
+{
+    margin:0 auto;
+    padding: 0;
+}
+
+.main-container 
+{
+    display: flex;
+    flex-direction: column;
+    height: 99%;
+    border: 1px solid green;
+    justify-content: space-between;
+}
+
+.main-container div 
+{
+    border:1px solid red;
+}
+
+.main-container .main-heading {
+    display: flex;
+    height: 10%;
+}
+
+.main-container .main-footer-content {
+    display: flex;
+    height: 9%;
+}
+
+.main-container .main-middle-content
+{
+    display: flex;
+    height: 80%;
+    flex-direction: row;
+}
+
+.main-container .main-middle-content .sidebar 
+{
+    display: flex;
+    width: 15%;
+}
+
+.main-container .main-middle-content .dashboard {
+    display: flex;
+    width: 85%;
+}
