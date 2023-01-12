@@ -45,7 +45,9 @@ class siteController extends Controller
     {
 
         if (View::exists('dashboards.tasklist')) {
-            return view("dashboards.tasklist");
+            $taskAll  = task::allTasks();
+           
+            return view::make("dashboards.tasklist")->with("taskAll",$taskAll);
         }
     }
 

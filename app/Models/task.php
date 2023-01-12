@@ -14,4 +14,15 @@ class task extends Model
         DB::insert('insert into task(taskTitle,taskDescription,createDate,taskStatus) values (?, ?,?,?)', [$taskTitle, $taskDescription,now(),1]);
         return DB::getPdo()->lastInsertId();
     }
+    
+    /**
+     * All tasks list
+     * @return array()
+     */
+
+    public static function allTasks()
+    {
+         return DB::select('select * from task');
+    }
+
 }
