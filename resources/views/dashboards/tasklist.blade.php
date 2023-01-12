@@ -16,7 +16,7 @@
               <td>  {{$task->id}} </td>
               <td>  {{$task->taskTitle}} </td>
               <td>  {{$task->createDate}} </td>
-              <td>  {{$task->taskStatus}} </td>
+              <td> <a href=""> View </a> || <a href="edit-task/{{ $task->id }}"> Edit </a> || <a href=""> Delete </a> </td>
         </tr>
 
        @endforeach

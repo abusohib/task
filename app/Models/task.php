@@ -25,4 +25,9 @@ class task extends Model
          return DB::select('select * from task');
     }
 
+    public static function getTask($taskId)
+    {
+        return DB::select("select * from task where id='$taskId'");
+    }
+
 }

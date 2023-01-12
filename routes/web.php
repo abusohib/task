@@ -23,3 +23,6 @@ Route::get('/welcome', [siteController::class, 'welcome']);
 Route::get('/newtask', [siteController::class,'newtask']);
 Route::get('/tasklist', [siteController::class, 'tasklist']);
 Route::post('/newtasksubmit', [siteController::class, 'newtasksubmit']);
+
+// Edit routes 
+Route::get('/edit-task/{taskId}', [siteController::class, 'editTask']);
