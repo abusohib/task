@@ -7,7 +7,7 @@
             <th> ID </th>
             <th> Task Title</th>
             <th> Date </th>
-            <th> Status </th>
+            <th> Actions </th>
          </tr>
      
        @foreach($taskAll as $task)
