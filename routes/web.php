@@ -26,3 +26,7 @@ Route::post('/newtasksubmit', [siteController::class, 'newtasksubmit']);
 
 // Edit routes 
 Route::get('/edit-task/{taskId}', [siteController::class, 'editTask']);
+Route::post('/update-task-submit', [siteController::class, 'updateTask']);
+
+// Delete routes 
+Route::get('delete-task/{taskId}', [siteController::class, 'deleteTask']);
