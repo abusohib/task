@@ -1,8 +1,7 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-
-use App\Http\Controllers\siteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,18 +14,18 @@ use App\Http\Controllers\siteController;
 |
 */
 
-Route::get('/', [siteController::class, 'homePage']);
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('/welcome', [siteController::class, 'welcome']);
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-// Open index page with this route
-Route::get('/newtask', [siteController::class,'newtask']);
-Route::get('/tasklist', [siteController::class, 'tasklist']);
-Route::post('/newtasksubmit', [siteController::class, 'newtasksubmit']);
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
-// Edit routes 
-Route::get('/edit-task/{taskId}', [siteController::class, 'editTask']);
-Route::post('/update-task-submit', [siteController::class, 'updateTask']);
-
-// Delete routes 
-Route::get('delete-task/{taskId}', [siteController::class, 'deleteTask']);
+require __DIR__.'/auth.php';
