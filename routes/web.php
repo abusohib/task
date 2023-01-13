@@ -19,7 +19,7 @@ Route::get('/', [siteController::class, 'homePage']);
 
 Route::get('/welcome', [siteController::class, 'welcome']);
 
-// Open index page with this route 
+// Open index page with this route
 Route::get('/newtask', [siteController::class,'newtask']);
 Route::get('/tasklist', [siteController::class, 'tasklist']);
 Route::post('/newtasksubmit', [siteController::class, 'newtasksubmit']);
