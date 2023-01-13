@@ -24,9 +24,7 @@ Route::get('/newtask', [siteController::class,'newtask']);
 Route::get('/tasklist', [siteController::class, 'tasklist']);
 Route::post('/newtasksubmit', [siteController::class, 'newtasksubmit']);
 <<<<<<< HEAD
-//edit
-Route::get('/edit-post/{id}', [PostController::class, 'edit'])->name('edit-post');
-=======
+
 
 // Edit routes
 Route::get('/edit-task/{taskId}', [siteController::class 'edit'])->( 'editTask');
