@@ -43,10 +43,8 @@ class siteController extends Controller
 
     public function tasklist()
     {
-
         if (View::exists('dashboards.tasklist')) {
             $taskAll  = task::allTasks();
-            
             return view::make("dashboards.tasklist")->with("taskAll",$taskAll);
         }
     }
@@ -57,6 +55,16 @@ class siteController extends Controller
           $taskId = task::insert($taksTitle,"this is description");
           return redirect()->to('/tasklist')->with('message', 'Thank you for updating your billing information.'); 
     }
+
+    /**
+     * Task edit form display 
+     */
+
+    public function editTask($taskId)
+    {
+        $task = task::getTask($taskId);
+        return view("dashboards.edit-task-form",["task"=>$task[0]]);
+    } 
 
   
 }
