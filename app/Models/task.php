@@ -11,7 +11,7 @@ class task extends Model
 
     public static function insert($taskTitle,$taskDescription)
     {
-        DB::insert('insert into task(taskTitle,taskDescription,createDate,taskStatus) values (?, ?,?,?)', [$taskTitle, $taskDescription,now(),1]);
+        DB::insert('insert into task(taskTitle,taskDescription,createDate,taskStatus) values (?, ?,?,?)', [$taskTitle, $taskDescription,now(),0]);
         return DB::getPdo()->lastInsertId();
     }
     
@@ -22,7 +22,7 @@ class task extends Model
 
     public static function allTasks()
     {
-         return DB::select('select * from task');
+         return DB::select('select * from task order by id DESC');
     }
 
     public static function getTask($taskId)
