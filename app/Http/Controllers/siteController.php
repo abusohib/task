@@ -64,7 +64,26 @@ class siteController extends Controller
     {
         $task = task::getTask($taskId);
         return view("dashboards.edit-task-form",["task"=>$task[0]]);
-    } 
+    }
+
+    public function updateTask(Request $request)
+    {
+            $taskTitle = $request->input("task_title");
+            $taskDescripton = $request->input("task_description");
+            $taskId = $request->input("taskid");
+            $status= task::updateTask($taskId,$taskTitle,$taskDescripton);
+            return redirect()->to('/tasklist')->with('message', 'Thank you for updating your billing information.'); 
+    }
+
+    
+    public function deleteTask($taskId)
+    {
+         $deleted = task::deleteTask($taskId);
+         if($deleted)
+         {
+            return redirect()->to('/tasklist')->with('message', 'Thank you for updating your billing information.'); 
+         }
+    }
 
   
 }

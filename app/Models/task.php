@@ -27,7 +27,17 @@ class task extends Model
 
     public static function getTask($taskId)
     {
-        return DB::select("select * from task where id='$taskId'");
+        return DB::select('select * from task where id=?',[$taskId]);
+    }
+
+    public static function updateTask($taskId,$taskTitle,$taskDescription)
+    {
+       return DB::update("update task set taskTitle=?,taskDescription=? where id=?",[$taskTitle,$taskDescription,$taskId]);
+    }
+
+    public static function deleteTask($taskId)
+    {
+        return DB::delete("delete from task where id=?", [$taskId]);
     }
 
 }
